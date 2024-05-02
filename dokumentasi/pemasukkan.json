@@ -1,0 +1,224 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Pemasukan Money Me",
+    "description": "API Pemasukan",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost"
+    }
+  ],
+  "paths": {
+    "/add_expense": {
+      "put": {
+        "summary": "Add a new expense",
+        "requestBody": {
+          "description": "Expense data",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "tanggal": {
+                    "type": "string",
+                    "description": "Date of the expense"
+                  },
+                  "keterangan": {
+                    "type": "string",
+                    "description": "Description of the expense"
+                  },
+                  "keperluan": {
+                    "type": "string",
+                    "description": "Purpose of the expense"
+                  },
+                  "jumlah": {
+                    "type": "number",
+                    "description": "Amount spent"
+                  },
+                  "username": {
+                    "type": "string",
+                    "description": "Username of the user"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Status": {
+                      "type": "string",
+                      "description": "Status of the operation"
+                    },
+                    "Message": {
+                      "type": "string",
+                      "description": "Message indicating success"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "description": "Error message"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/update_expense": {
+      "patch": {
+        "summary": "Update an existing expense",
+        "requestBody": {
+          "description": "Expense update data",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "tanggal": {
+                    "type": "string",
+                    "description": "Updated date of the expense"
+                  },
+                  "keterangan": {
+                    "type": "string",
+                    "description": "Updated description of the expense"
+                  },
+                  "keperluan": {
+                    "type": "string",
+                    "description": "Updated purpose of the expense"
+                  },
+                  "jumlah": {
+                    "type": "number",
+                    "description": "Updated amount spent"
+                  },
+                  "id": {
+                    "type": "string",
+                    "description": "ID of the expense to update"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Status": {
+                      "type": "string",
+                      "description": "Status of the operation"
+                    },
+                    "Message": {
+                      "type": "string",
+                      "description": "Message indicating success"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "description": "Error message"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/delete_expense": {
+      "delete": {
+        "summary": "Delete an existing expense",
+        "requestBody": {
+          "description": "Expense deletion data",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "description": "ID of the expense to delete"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Status": {
+                      "type": "string",
+                      "description": "Status of the operation"
+                    },
+                    "Message": {
+                      "type": "string",
+                      "description": "Message indicating success"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "description": "Error message"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
